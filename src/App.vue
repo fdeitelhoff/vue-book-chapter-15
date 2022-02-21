@@ -1,12 +1,27 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import { reactive } from 'vue';
+import Cart from './components/Cart.vue';
+import CartComposition from './components/CartComposition.vue';
+
+const articles = reactive([
+  {
+    id: 1,
+    name: 'Artikel 1',
+    quantity: 2,
+    price: 1.0,
+  },
+  {
+    id: 2,
+    name: 'Artikel 2',
+    quantity: 3,
+    price: 2.0,
+  },
+]);
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <Cart :articles="articles" />
+  <CartComposition :articles="articles" />
 </template>
 
 <style>
